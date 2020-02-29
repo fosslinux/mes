@@ -115,3 +115,5 @@
 core
 /.config
 a.out
+
+/nyacc
