@@ -20,6 +20,11 @@
 
 set -e
 
+# Inject gash code
+export REPO=$(pwd)/../..
+export PATH=${REPO}/sources/gash-assets:${REPO}/sources/bin:${REPO}/sources/staging/bin:$PATH
+. ${REPO}/sources/gash-assets/source.sh
+
 MES_ARENA=${MES_ARENA-20000000}
 export MES_ARENA
 MES_MAX_ARENA=${MES_MAX_ARENA-${MES_ARENA}}

@@ -20,6 +20,11 @@
 
 set -e
 
+# Inject gash code
+export REPO=$(pwd)/../..
+export PATH=${REPO}/sources/gash-assets:${REPO}/sources/bin:${REPO}/sources/staging/bin:$PATH
+. ${REPO}/sources/gash-assets/source.sh
+
 VERSION=0.21
 srcdir=${srcdir-$(dirname $0)}
 srcdest=
@@ -29,7 +34,7 @@ fi
 . ${srcdest}build-aux/trace.sh
 
 # parse arguments
-while [ $# -gt 0 ]; do
+while test $# -gt 0 ; do
     case $1 in
         (--with-courage)
             courageous=true

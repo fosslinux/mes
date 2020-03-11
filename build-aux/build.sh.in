@@ -20,6 +20,11 @@
 
 set -e
 
+# Inject gash code
+export REPO=$(pwd)/../..
+export PATH=${REPO}/sources/gash-assets:${REPO}/sources/bin:${REPO}/sources/staging/bin:$PATH
+. ${REPO}/sources/gash-assets/source.sh
+
 if test "$1" = "help"; then
     cat <<EOF
 Run:
