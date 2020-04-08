@@ -104,7 +104,7 @@ fi
 
 numbered_arch=false
 mes_tools=named
-if ( $HEX2 --help 2>&1 ) | grep -q "\-\-Architecture 12345"; then
+if ( $HEX2 --help 2>&1 ) | grep -q '\-\-Architecture' | grep -q '12345' ; then
     numbered_arch=true
     mes_tools=numbered
 fi
@@ -215,7 +215,7 @@ case "$mes_cpu" in
     *)
         mes_bits=32;;
 esac
-#
+ 
 if $CC --version | grep gcc; then
     compiler=gcc
 elif $CC --version | grep tcc; then

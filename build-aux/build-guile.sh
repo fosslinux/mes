@@ -51,7 +51,7 @@ build-aux/mes-snarf.scm
 export host=$($GUILE -c "(display %host-type)")
 
 abs=$srcdest
-if [ "$GUILE_EFFECTIVE_VERSION" = "2.0" ]; then
+if test "$GUILE_EFFECTIVE_VERSION" = "2.0" ; then
     srcdest=$abs_top_srcdir/
 fi
 

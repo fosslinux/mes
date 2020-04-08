@@ -23,7 +23,7 @@ set -u
 
 V=${V-1}
 
-if [ "$V" = 2 ]; then
+if test "$V" = 2 ; then
     set -x
 fi
 

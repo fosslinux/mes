@@ -18,7 +18,7 @@
 # You should have received a copy of the GNU General Public License
 # along with GNU Mes.  If not, see <http://www.gnu.org/licenses/>.
 
-if [ "$V" = 2 ]; then
+if test "$V" = 2 ; then
     set -x
 fi
 
@@ -46,12 +46,12 @@ export libdir
 numbered_arch=${numbered_arch=@numbered_arch@}
 export numbered_arch
 
-if [ ! -f $bindir/mescc.scm ]; then
+if test ! -f $bindir/mescc.scm ; then
    bindir=$(dirname $0)
 fi
 
 sep=
-if [ "$(basename ${SCHEME-$MES})" = "mes" ]; then
+if test "$(basename ${SCHEME-$MES})" = "mes" ; then
     sep=--
 fi
 

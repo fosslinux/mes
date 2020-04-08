@@ -18,12 +18,12 @@
 # You should have received a copy of the GNU General Public License
 # along with GNU Mes.  If not, see <http://www.gnu.org/licenses/>.
 
-if [ "$V" = 2 ]; then
+if test "$V" = 2 ; then
     set -x
 fi
 
 # parse arguments
-while [ $# -gt 0 ]; do
+while test $# -gt 0 ; do
     case $1 in
         (-h|--help)
         cat <<EOF
@@ -58,17 +58,17 @@ done
 
 command=$1
 shift
-if [ -z "$command" ]; then
+if test -z "$command" ; then
     echo "AR: Usage error: missing command." 1>&2
     exit 2
 fi
 archive=$1
 shift
-if [ -z "$archive" ]; then
+if test -z "$archive" ; then
     echo "AR: Usage error: missing archive" 1>&2
     exit 2
 fi
-if [ $# -eq 0 ]; then
+if test $# -eq 0 ; then
     echo "AR: Usage error: missing object files" 1>&2
     exit 2
 fi
