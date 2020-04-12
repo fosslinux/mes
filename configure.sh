@@ -20,12 +20,7 @@
 
 set -e
 
-# Inject gash code
-export REPO=$(pwd)/../..
-export PATH=${REPO}/sources/gash-assets:${REPO}/sources/bin:${REPO}/sources/staging/bin:$PATH
-. ${REPO}/sources/gash-assets/source.sh
-
-VERSION=0.21
+VERSION=0.22
 srcdir=${srcdir-$(dirname $0)}
 srcdest=
 if test "$srcdir" != "."; then
@@ -104,7 +99,7 @@ fi
 
 numbered_arch=false
 mes_tools=named
-if ( $HEX2 --help 2>&1 ) | grep -q '\-\-Architecture' | grep -q '12345' ; then
+if ( $HEX2 --help 2>&1 ) | grep -q "\-\-Architecture 12345"; then
     numbered_arch=true
     mes_tools=numbered
 fi
@@ -127,7 +122,7 @@ subst () {
     -e s,"@PACKAGE_NAME@,$PACKAGE_NAME,"\
     -e s,"@PACKAGE_BUGREPORT@,$PACKAGE_BUGREPORT,"\
     -e s,"@VERSION@,$VERSION,"\
-    -e s,"@bootstrap@,yes,"\
+    -e s,"@bootstrap@,true,"\
     -e s,"@build@,$build,"\
     -e s,"@host@,$host,"\
     -e s,"@compiler@,$compiler,"\
@@ -215,7 +210,7 @@ case "$mes_cpu" in
     *)
         mes_bits=32;;
 esac
- 
+#
 if $CC --version | grep gcc; then
     compiler=gcc
 elif $CC --version | grep tcc; then
